@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch</title>
+
+<style>
+:root {
+  --border-color: #333;
+  --green: #00ff00;
+  --red: #ff0000;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(900px, 95%);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.display {
+  background: #cfd3e2;
+  border: 6px solid var(--border-color);
+  border-radius: 30px;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.time-main {
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: bold;
+}
+
+.time-ms {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.controls {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+button {
+  flex: 1;
+  min-width: 200px;
+  padding: 30px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  border-radius: 25px;
+  border: 6px solid var(--border-color);
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+#startBtn {
+  background: var(--green);
+}
+
+#clearBtn {
+  background: var(--red);
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="display">
+    <div id="timeMain" class="time-main">00:00:00</div>
+    <div id="timeMs" class="time-ms">000</div>
+  </div>
+
+  <div class="controls">
+    <button id="startBtn" aria-label="Start stopwatch">Start</button>
+    <button id="clearBtn" aria-label="Reset stopwatch">Clear</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
